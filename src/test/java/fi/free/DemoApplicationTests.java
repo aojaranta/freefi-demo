@@ -5,12 +5,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.client.RestTemplate;
 
 import fi.free.utils.SSNUtil;
 
 @SpringBootTest
 class DemoApplicationTests {
+	
+	@Mock
+    private RestTemplate restTemplate;
 	
 	@Test
 	void contextLoads() {

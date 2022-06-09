@@ -47,6 +47,7 @@ public class ApiLayerService {
 		try {
 			Set<ExchangeRate> exchangeRates = new HashSet<ExchangeRate>();
 			ExchangeRateResponse response = fetchLatestExchangeRates(base, symbols);
+			exchangeRateRepository.deleteAllByBase(base);
 			response.getRates().forEach((key, value) -> {
 				ExchangeRate exchangeRate = new ExchangeRate();
 				exchangeRate.setBase(response.getBase());
@@ -57,6 +58,7 @@ public class ApiLayerService {
 				exchangeRates.add(exchangeRate);
 			});
 			exchangeRateRepository.saveAll(exchangeRates);
+			exchangeRateRepository.flush();
 		} catch (RestClientException e) {
 			log.warn("Error while fetching new exchange rates. Reason: {}", e.getMessage());
 		}
@@ -79,8 +81,10 @@ public class ApiLayerService {
 		Map<String, String> queryParams = new HashMap<>();
 		queryParams.put("base", base);
 		queryParams.put("symbols", symbols.toString());
-		ResponseEntity<ExchangeRateResponse> response = request.exchange(apilayer_latest_url, HttpMethod.GET, entity, ExchangeRateResponse.class, queryParams);
+		ResponseEntity<ExchangeRateResponse> response = null;
+		response = request.exchange(apilayer_latest_url, HttpMethod.GET, entity, ExchangeRateResponse.class, queryParams);
 		log.info("Response from ApiLayer {} {}", response.getStatusCodeValue(), response.getStatusCode());
 		return response.getBody();
 	}
+	
 }

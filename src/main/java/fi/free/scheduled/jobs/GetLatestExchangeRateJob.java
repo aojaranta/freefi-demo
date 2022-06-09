@@ -16,13 +16,16 @@ public class GetLatestExchangeRateJob implements Job {
 	 
 	private final ApiLayerService apiLayerService;
 	
+	private final String[] currencies = new String[] {"EUR", "SEK", "USD"};
+	
 	public GetLatestExchangeRateJob(ApiLayerService apiLayerService) {
 		this.apiLayerService = apiLayerService;
 	}
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
 		log.info("Executing Quartz job GetLatestExchangeRateJob {}", context.getJobDetail().getKey());
-		apiLayerService.getLatestExchangeRatesFromApiLayer("EUR", new String[] {"EUR", "SEK", "USD"});		
+		for(String baseCurrency : currencies)
+			apiLayerService.getLatestExchangeRatesFromApiLayer(baseCurrency, currencies);
 	}
 
 }

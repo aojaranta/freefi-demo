@@ -9,17 +9,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "EXCHANGERATES",
-indexes = {})
+indexes = {},
+uniqueConstraints = {
+		@UniqueConstraint(name="Unq_exchangeRate_base_exchangeRate", columnNames={"base", "exchangeRate"})
+})
 public class ExchangeRate {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "base", unique = true)
+	@Column(name = "base")
 	private String base;
 	
 	@Column(name = "date")
