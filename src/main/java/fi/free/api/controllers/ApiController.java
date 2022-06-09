@@ -25,6 +25,7 @@ import fi.free.api.dto.SSNValidationRequest;
 import fi.free.api.dto.SSNValidationResponse;
 import fi.free.models.ExchangeRate;
 import fi.free.services.ExchangeRateService;
+import fi.free.utils.SSNUtil;
 
 @Validated
 @RestController
@@ -86,8 +87,8 @@ public class ApiController {
 	@PostMapping("/ssn")
 	public ResponseEntity<SSNValidationResponse> validate_ssn(@Valid @RequestBody SSNValidationRequest requestBody) {
 		log.debug("Validating {} social security number {}", requestBody.getCountryCode(), requestBody.getSSN());
-		// TODO write business logic
-		return ResponseEntity.ok(new SSNValidationResponse());
+		boolean isSSNvalid = SSNUtil.validateSSN(requestBody.getSSN());
+		return ResponseEntity.ok(new SSNValidationResponse(isSSNvalid));
 	}
 
 }
