@@ -12,7 +12,7 @@ import fi.free.apilayer.ApiLayerService;
 @Component
 public class GetLatestExchangeRateJob implements Job {
 
-	private Logger log = LoggerFactory.getLogger(GetLatestExchangeRateJob.class);
+	private final Logger log = LoggerFactory.getLogger(GetLatestExchangeRateJob.class);
 	 
 	private final ApiLayerService apiLayerService;
 	

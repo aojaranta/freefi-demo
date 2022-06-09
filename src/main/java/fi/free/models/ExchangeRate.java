@@ -5,15 +5,18 @@ import java.time.ZonedDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ExchangeRates",
+@Table(name = "EXCHANGERATES",
 indexes = {})
 public class ExchangeRate {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(name = "base", unique = true)
@@ -21,10 +24,7 @@ public class ExchangeRate {
 	
 	@Column(name = "date")
 	private String date;
-	
-	@Column(name = "success")
-	private boolean success;
-	
+		
 	@Column(name = "timestamp")
 	private ZonedDateTime timestamp;
 	
@@ -53,14 +53,6 @@ public class ExchangeRate {
 
 	public void setDate(String date) {
 		this.date = date;
-	}
-
-	public boolean isSuccess() {
-		return success;
-	}
-
-	public void setSuccess(boolean success) {
-		this.success = success;
 	}
 
 	public ZonedDateTime getTimestamp() {
