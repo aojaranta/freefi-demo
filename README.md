@@ -15,11 +15,13 @@ Application uses H2 in-memory database.
 3. Enter "git clone https://github.com/aojaranta/freefi-demo.git"
 4. Enter "mvn clean package"
 
-** Run java app **
-5. Enter "java -jar target/demo-[version].jar". Builded jar file name can be located under ./target folder 
+**Run java app**
+
+5. Enter "java -jar target/demo-[version].jar". Builded jar file name can be located under ./target folder
 
 
-** Run on docker **
+**Run on docker**
+
 5. Enter "docker pull openjdk"
 6. Enter "docker build -t demo:latest ."
 7. Enter "docker run -p8080:8080 demo:latest"
@@ -34,7 +36,7 @@ ResponseCodes:
 - 4XX -> Client error
 - 5XX -> Server error
 
-** POST /api/ssn  ** - Validate social security number. 
+**POST /api/ssn** - Validate social security number. 
 
 Request
 ```
@@ -48,7 +50,7 @@ Response 200
 }
 ```
 
-** GET /api/currency  ** - Calculate currency exchange.
+**GET /api/currency** - Calculate currency exchange.
 
 Request
 ```
