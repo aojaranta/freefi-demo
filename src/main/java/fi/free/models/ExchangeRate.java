@@ -1,7 +1,7 @@
 package fi.free.models;
 
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,7 +30,7 @@ public class ExchangeRate {
 	private String date;
 		
 	@Column(name = "timestamp")
-	private ZonedDateTime timestamp;
+	private Date timestamp;
 	
 	@Column(name = "exchangeRate")
 	private String exchangeRate;
@@ -59,11 +59,11 @@ public class ExchangeRate {
 		this.date = date;
 	}
 
-	public ZonedDateTime getTimestamp() {
+	public Date getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(ZonedDateTime timestamp) {
+	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
 	}
 

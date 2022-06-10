@@ -1,7 +1,7 @@
 package fi.free.apilayer;
 
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.HashMap;
 
 public class ExchangeRateResponse {
@@ -27,7 +27,7 @@ public class ExchangeRateResponse {
 	
 	private boolean success;
 	
-	private ZonedDateTime timestamp;
+	private Date timestamp;
 	
 	private HashMap<String, BigDecimal> rates;
 
@@ -55,11 +55,11 @@ public class ExchangeRateResponse {
 		this.success = success;
 	}
 
-	public ZonedDateTime getTimestamp() {
+	public Date getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(ZonedDateTime timestamp) {
+	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
 	}
 

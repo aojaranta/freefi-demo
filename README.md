@@ -29,6 +29,11 @@ Application uses H2 in-memory database.
 
 application base URL is "http://localhost:8080"
 
+ResponseCodes:
+- 2XX -> Success
+- 4XX -> Client error
+- 5XX -> Server error
+
 ** POST /api/ssn  ** - Validate social security number. 
 
 Request
@@ -50,7 +55,7 @@ Request
 curl --location --request GET 'http://localhost:8080/api/currency?from=EUR&from_amount=10.00&to=SEK'
 ```
 
-Response
+Response 200
 ```
 {
     "from": "EUR",

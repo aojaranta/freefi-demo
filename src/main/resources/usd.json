@@ -1,0 +1,11 @@
+{
+	"base": "USD",
+	"date": "2022-06-10",
+	"rates": {
+		"SEK": 9.90,
+		"USD": 1,
+		"EUR": 0.94
+	},
+	"success": true,
+	"timestamp": 1519296206
+}

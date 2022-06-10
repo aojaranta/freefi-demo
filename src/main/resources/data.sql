@@ -1,1 +1,0 @@
-INSERT INTO EXCHANGERATES(base, exchangeRate, exchangeValue) VALUES('EUR', 'SEK', 10.50);
